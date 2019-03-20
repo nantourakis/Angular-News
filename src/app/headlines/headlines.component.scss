@@ -1,0 +1,40 @@
+.categories {
+    margin-top: 20px;
+}
+
+.mat-card {
+    margin-bottom: 15px;
+    display:flex;
+    flex-direction: column;
+}
+
+img {
+      height: 170px;
+}
+
+  .mat-card-header {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0; 
+}
+
+.mat-card-content{
+	flex-grow: 1;
+	overflow: auto; 
+}
+
+.mat-card-actions {
+    margin-left: 10px;
+}
+
+.mat-card-title {
+    font-size: 17px;
+    font-weight: bold;
+  }
+
+  p {
+    text-align: left;
+}
+
+
+ 

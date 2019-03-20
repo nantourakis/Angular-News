@@ -1,0 +1,42 @@
+<div class="row">
+<!--center items from boostrap property-->
+  <div class="sources container d-flex justify-content-center">
+      <mat-form-field>
+        <!-- created slected property in ts-->
+        <!-- 2 way binding to make use of selected property -->
+          <mat-select [(value)]="selected">
+            <!-- to go through the sources array-->
+            <mat-option [value]="source.id" *ngFor="let source of sources">{{source.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <!-- click listener on button to change/load the source selected from drop down-->
+        <button mat-button (click)="onSourceChange()">Submit</button>
+  </div>
+  <div class="row">
+      <!-- ? = asycnh, only renders until after the articles property-->
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-10" 
+      *ngFor="let article of news?.articles">
+          <mat-card style="height:535px;">
+            <!-- from inspecting article object -->
+              <img mat-card-image *ngIf="article.urlToImage" [src]="article.urlToImage" alt="" /> 
+              <mat-card-header>
+                <mat-card-title>
+                  <!-- to get title from the article object-->
+                 {{article.title}}
+                </mat-card-title>
+              </mat-card-header>
+              <mat-card-content style="display:flex; flex-direction: column;" style="text-align:center">
+                <p>
+                  {{article.content}}
+                </p>
+              </mat-card-content>
+              <mat-card-footer>
+              <mat-card-actions style="text-align: left;">
+                <button mat-raised-button color="accent" (click)="onFavorite(article)">Favorite</button>
+                <a href="{{article.url}}" target="_blank" mat-raised-button color="primary">Read More</a>
+              </mat-card-actions>
+            </mat-card-footer>
+            </mat-card>
+      </div>
+    </div>
+</div>

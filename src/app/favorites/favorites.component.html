@@ -1,0 +1,29 @@
+<div class="row">
+    <!-- ? = asycnh, only renders until after the articles property-->
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-10" 
+    *ngFor="let article of articles">
+    <!-- cdkDrag added to the card to enable drag and drop feature-->
+        <mat-card style="height:535px;" cdkDrag>
+          <!-- from inspecting article object -->
+            <img mat-card-image *ngIf="article.urlToImage" [src]="article.urlToImage" alt="" /> 
+            <mat-card-header>
+              <mat-card-title>
+                <!-- to get title from the article object-->
+               {{article.title}}
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="display:flex; flex-direction: column;" style="text-align:center">
+              <p>
+                {{article.content}}
+              </p>
+            </mat-card-content>
+            <mat-card-footer>
+            <mat-card-actions>
+              <button mat-raised-button color="warn" (click)="onUnFavorite(article)">Remove</button>
+              <a href="{{article.url}}" target="_blank" mat-raised-button color="primary">Read More</a>
+            </mat-card-actions>
+          </mat-card-footer>
+          </mat-card>
+          
+    </div>
+  </div>

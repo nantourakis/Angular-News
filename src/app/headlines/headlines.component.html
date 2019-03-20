@@ -1,0 +1,41 @@
+
+<!--import mat-chip module to material.ts & also export -->
+<div class="row">
+    <mat-spinner *ngIf="!news"></mat-spinner>
+  <!-- using bootstrap to center categories -->
+  <div class=" categories container d-flex justify-content-center">
+
+      <mat-chip-list>
+          <!-- using categories array from headlines.ts - add click event and pass our catagories to the method -->
+          <mat-chip *ngFor="let category of categories"
+           (click)="onGetCategoryData (category)">{{ category }}</mat-chip>
+        </mat-chip-list>
+
+  </div>
+<!-- to show articles on the page within the card -->
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mt-10" 
+  *ngFor="let article of news?.articles">
+      <mat-card style="height:535px;">
+        <!-- from inspecting article object -->
+          <img mat-card-image *ngIf="article.urlToImage" [src]="article.urlToImage" alt="" /> 
+          <mat-card-header>
+            <mat-card-title>
+              <!-- to get title from the article object-->
+             {{article.title}}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content style="display:flex; flex-direction: column;" style="text-align:center">
+            <p>
+              {{article.content}}
+            </p>
+          </mat-card-content>
+          <mat-card-footer>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" (click)="onFavorite(article)">Favorite</button>
+            <a href="{{article.url}}" target="_blank" mat-raised-button color="primary">Read More</a>
+          </mat-card-actions>
+        </mat-card-footer>
+        </mat-card>
+        
+  </div>
+</div>
