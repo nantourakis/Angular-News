@@ -1,6 +1,6 @@
 # Angular-News
 
-http://angularnews.s3-website.us-east-2.amazonaws.com/
+https://nantourakis.github.io/Read-All-About-It/
 
 This Angular application connects to the News Api and lets you get up to date News Articles from some of your favorite sources and categories.
 
